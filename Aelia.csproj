@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <Folder Include="Controleur\" />
+      <Folder Include="Vue\" />
     </ItemGroup>
 
 </Project>

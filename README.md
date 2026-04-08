@@ -1,4 +1,5 @@
 ﻿# ⚔️ Aelia - RPG Console Edition [WORK IN PROGRESS]
+ [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 
 **Aelia** est un jeu de rôle (JDR) textuel développé en **C#** utilisant une architecture **MVC** (Modèle-Vue-Contrôleur) pour garantir un code propre et évolutif.
 

@@ -1,27 +1,30 @@
-// Definition of the Combat class
+// Fichier de modèle pour le système de combat
+// Auteur : 912i
+
 using System;
 
 namespace Aelia.Modele
 {
     public class Combat
     {
-        public Personnage Joueur { get; set; }
+        // Attributs
+        public Personnage Personnage { get; set; }
         public Personnage Ennemi { get; set; }
         public int Tour { get; set; }
-        public bool EstTermine { get; set; }
 
-        public Combat(Personnage joueur, Personnage ennemi)
+        // Constructeur
+        public Combat(Personnage personnage, Personnage ennemi)
         {
-            Joueur = joueur;
+            Personnage = personnage;
             Ennemi = ennemi;
             Tour = 0;
-            EstTermine = false;
         }
 
+        // Méthode pour lancer un tour de combat
         public void LancerTour()
         {
-            // Logic for launching a turn in combat
-            Tour++;
+            // Logique de combat à implémenter
+            Console.WriteLine("Tour de combat en cours...");
         }
     }
 }

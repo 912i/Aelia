@@ -1,33 +1,31 @@
 // Fichier de modèle pour le système de combat
-// Auteur : [Votre Nom]
+// Auteur : Équipe Aelia
 
 using System;
-using System.Collections.Generic;
 
 namespace Aelia.Modele
 {
     public class Combat
     {
         // Attributs
-        private Personnage joueur;
-        private Personnage ennemi;
+        private Personnage personnage;
+        private Personnage adversaire;
+        private int tour;
         private bool estTermine;
-        private List<string> journalDeCombat;
 
         // Constructeur
-        public Combat(Personnage joueur, Personnage ennemi)
+        public Combat(Personnage personnage, Personnage adversaire)
         {
-            this.joueur = joueur;
-            this.ennemi = ennemi;
+            this.personnage = personnage;
+            this.adversaire = adversaire;
+            this.tour = 0;
             this.estTermine = false;
-            this.journalDeCombat = new List<string>();
         }
 
         // Méthode pour lancer un tour de combat
-        public void LancerTourDeCombat()
+        public void LancerTour()
         {
-            // Logique pour le tour de combat
-            // ... à implémenter ...
+            // À implémenter
         }
 
         // Méthode pour déterminer si le combat est terminé

@@ -1,30 +1,39 @@
 // Fichier de modèle pour le système de combat
-// Auteur : 912i
+// Auteur : [Votre Nom]
 
 using System;
+using System.Collections.Generic;
 
 namespace Aelia.Modele
 {
     public class Combat
     {
         // Attributs
-        public Personnage Personnage { get; set; }
-        public Personnage Ennemi { get; set; }
-        public int Tour { get; set; }
+        private Personnage joueur;
+        private Personnage ennemi;
+        private bool estTermine;
+        private List<string> journalDeCombat;
 
         // Constructeur
-        public Combat(Personnage personnage, Personnage ennemi)
+        public Combat(Personnage joueur, Personnage ennemi)
         {
-            Personnage = personnage;
-            Ennemi = ennemi;
-            Tour = 0;
+            this.joueur = joueur;
+            this.ennemi = ennemi;
+            this.estTermine = false;
+            this.journalDeCombat = new List<string>();
         }
 
         // Méthode pour lancer un tour de combat
-        public void LancerTour()
+        public void LancerTourDeCombat()
         {
-            // Logique de combat à implémenter
-            Console.WriteLine("Tour de combat en cours...");
+            // Logique pour le tour de combat
+            // ... à implémenter ...
+        }
+
+        // Méthode pour déterminer si le combat est terminé
+        public bool EstTermine()
+        {
+            return this.estTermine;
         }
     }
 }

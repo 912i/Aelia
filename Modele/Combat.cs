@@ -1,8 +1,5 @@
 // Fichier de modèle pour le système de combat
-// Auteur : Équipe Aelia
-
-using System;
-
+// Auteur : Votre Nom
 namespace Aelia.Modele
 {
     public class Combat
@@ -25,13 +22,8 @@ namespace Aelia.Modele
         // Méthode pour lancer un tour de combat
         public void LancerTour()
         {
+            // Logique de combat au tour par tour
             // À implémenter
-        }
-
-        // Méthode pour déterminer si le combat est terminé
-        public bool EstTermine()
-        {
-            return this.estTermine;
         }
     }
 }

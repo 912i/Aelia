@@ -21,7 +21,7 @@ Le projet suit strictement les principes de la Programmation Orientée Objet :
 - **Contrôleur** : Orchestration du flux de jeu.
 
 ## 📝 À venir
-- [ ] Système de combat au tour par tour.
+- [x] Système de combat au tour par tour.
 - [ ] Gestion de l'inventaire et des objets.
 - [ ] Dialogues avec les PNJ.
 

@@ -8,6 +8,7 @@
 - [x] Système de statistiques avec "garde-fou" (limite à 20).
 - [x] Création de personnage (Nom, Race, Classe).
 - [x] Système de lancer de dés (`Roll`) avec avantage.
+- [x] Système de combat au tour par tour.
 
 ## 🛠️ Installation & Lancement
 1. Clonez le dépôt : `git clone https://github.com/912i/Aelia.git`
@@ -21,7 +22,6 @@ Le projet suit strictement les principes de la Programmation Orientée Objet :
 - **Contrôleur** : Orchestration du flux de jeu.
 
 ## 📝 À venir
-- [x] Système de combat au tour par tour.
 - [ ] Gestion de l'inventaire et des objets.
 - [ ] Dialogues avec les PNJ.
 

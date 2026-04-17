@@ -33,8 +33,9 @@ public class Personnage
     public Statistique Statistiques { get; set; } = new Statistique();
     
     public bool EstMort => PointDeVie <= 0;
+    public bool EstVivant => PointDeVie <= 0;
     
-    protected static readonly Random rnd = new Random();
+    public static readonly Random rnd = new Random();
 
     public bool Roll(int maStat)
     {

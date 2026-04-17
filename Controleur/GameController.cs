@@ -13,12 +13,46 @@ public class GameController
         _joueur = new Joueur();
         _joueur.OnMort += GererMortJoueur;
     }
+    
+    private void LancerSequenceCombat()
+    {
+        Personnage monstre = new Personnage();
+        monstre.Nom = "Gobelin";
+        monstre.Statistiques = _joueur.Statistiques;
+
+        
+        Combat combat = new Combat(_joueur, monstre);
+
+        GameView.AfficherEntete($"Un {monstre.Nom} sauvage apparaît !");
+        
+        while (!combat.estTermine)
+        {
+            combat.LancerTour();
+            
+            GameView.EcrireLog($"--- État du combat ---");
+            GameView.EcrireLog($"{_joueur.Nom} : {_joueur.PointDeVie} PV");
+            GameView.EcrireLog($"{monstre.Nom} : {monstre.PointDeVie} PV");
+        
+
+            System.Threading.Thread.Sleep(1400);
+        }
+
+
+        if (_joueur.EstMort)
+        {
+
+        }
+        else
+        {
+            GameView.EcrireLog($"Victoire ! Vous avez terrassé le {monstre.Nom}.");
+        }
+    }
 
     public void DemarrerPartie()
     {
         InitialiserJoueur();
         
-        string[] menuPrincipal = { "Se soigner (5 PV)", "Prendre des dégâts (10 PV)", "Quitter" };
+        string[] menuPrincipal = { "Se soigner (5 PV)", "Prendre des dégâts (10 PV)", "Combattre un monstre", "Quitter" };
 
         while (_jeuEnCours)
         {
@@ -29,10 +63,13 @@ public class GameController
             {
                 case "1": _joueur.Soin(5); break;
                 case "2": _joueur.RecevoirDegats(10); break;
-                case "3": _jeuEnCours = false; break;
+                case "3": LancerSequenceCombat(); break;
+                case "4": _jeuEnCours = false; break;
             }
         }
     }
+    
+    
 
     private void InitialiserJoueur()
     {

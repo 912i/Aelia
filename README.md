@@ -24,4 +24,5 @@ Le projet suit strictement les principes de la Programmation Orientée Objet :
 ## 📝 À venir
 - [ ] Gestion de l'inventaire et des objets.
 - [ ] Dialogues avec les PNJ.
+- [ ] Ajouter un mode "Aventure".
 

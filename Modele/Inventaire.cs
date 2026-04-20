@@ -1,24 +1,43 @@
-// Classe représentant l'inventaire d'un personnage
-public class Inventaire
+// Fichier pour la gestion de l'inventaire
+// Auteur : Votre Nom
+// Date : Aujourd'hui
+
+using System;
+using System.Collections.Generic;
+
+namespace Modele
 {
-    // Liste d'objets dans l'inventaire
-    public List<Objet> Objets { get; set; }
-
-    // Constructeur par défaut
-    public Inventaire()
+    public class Inventaire
     {
-        Objets = new List<Objet>();
-    }
+        // Liste d'objets dans l'inventaire
+        private List<Objet> objets;
 
-    // Méthode pour ajouter un objet à l'inventaire
-    public void AjouterObjet(Objet objet)
-    {
-        Objets.Add(objet);
-    }
+        // Constructeur
+        public Inventaire()
+        {
+            objets = new List<Objet>();
+        }
 
-    // Méthode pour supprimer un objet de l'inventaire
-    public void SupprimerObjet(Objet objet)
-    {
-        Objets.Remove(objet);
+        // Méthode pour ajouter un objet à l'inventaire
+        public void AjouterObjet(Objet objet)
+        {
+            objets.Add(objet);
+        }
+
+        // Méthode pour supprimer un objet de l'inventaire
+        public void SupprimerObjet(Objet objet)
+        {
+            objets.Remove(objet);
+        }
+
+        // Méthode pour afficher les objets de l'inventaire
+        public void AfficherInventaire()
+        {
+            Console.WriteLine("Inventaire :");
+            foreach (Objet objet in objets)
+            {
+                Console.WriteLine(objet.Nom);
+            }
+        }
     }
 }

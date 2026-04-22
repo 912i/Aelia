@@ -31,7 +31,32 @@ public static class GameView
 
     public static void EcrireLog(string message) => Console.WriteLine($"\n> {message}");
 
+    public static int AfficherInventaireInteractif(Modele.Inventaire inventaire)
+    {
+        AfficherEntete("Votre Inventaire");
+        if (inventaire.Objets.Count == 0)
+        {
+            Console.WriteLine("Votre inventaire est vide.");
+            return -1;
+        }
+
+        for (int i = 0; i < inventaire.Objets.Count; i++)
+        {
+            var obj = inventaire.Objets[i];
+            Console.WriteLine($"{i + 1}. {obj.Nom} ({obj.Description})");
+        }
+        Console.WriteLine($"{inventaire.Objets.Count + 1}. Retour");
+
+        string choix = DemanderInfo("Utiliser quel objet (index)");
+        if (int.TryParse(choix, out int index) && index >= 1 && index <= inventaire.Objets.Count)
+        {
+            return index - 1;
+        }
+        return -1;
+    }
+
     public static void AfficherGameOver(string nom)
+
     {
         Console.Clear();
         Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");

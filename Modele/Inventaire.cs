@@ -1,8 +1,12 @@
+namespace Aelia.Modele;
+
 // Classe représentant l'inventaire d'un personnage
 public class Inventaire
 {
     // Liste d'objets dans l'inventaire
     private List<Objet> objets;
+
+    public IReadOnlyList<Objet> Objets => objets.AsReadOnly();
 
     // Constructeur
     public Inventaire()
@@ -22,12 +26,12 @@ public class Inventaire
         objets.Remove(objet);
     }
 
-    // Méthode pour afficher les objets de l'inventaire
-    public void AfficherInventaire()
+    public Objet GetObjet(int index)
     {
-        foreach (var objet in objets)
-        {
-            Console.WriteLine(objet.Nom);
-        }
+        if (index >= 0 && index < objets.Count)
+            return objets[index];
+        return null;
     }
+
 }
+

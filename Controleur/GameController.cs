@@ -52,7 +52,7 @@ public class GameController
     {
         InitialiserJoueur();
         
-        string[] menuPrincipal = { "Se soigner (5 PV)", "Prendre des dégâts (10 PV)", "Combattre un monstre", "Quitter" };
+        string[] menuPrincipal = { "Se soigner (5 PV)", "Prendre des dégâts (10 PV)", "Combattre un monstre", "Inventaire", "Quitter" };
 
         while (_jeuEnCours)
         {
@@ -64,13 +64,12 @@ public class GameController
                 case "1": _joueur.Soin(5); break;
                 case "2": _joueur.RecevoirDegats(10); break;
                 case "3": LancerSequenceCombat(); break;
-                case "4": _jeuEnCours = false; break;
+                case "4": OuvrirInventaire(); break;
+                case "5": _jeuEnCours = false; break;
             }
         }
     }
     
-    
-
     private void InitialiserJoueur()
     {
         GameView.AfficherEntete("Création de votre héros");
@@ -83,8 +82,28 @@ public class GameController
             _joueur.DefinirRace(indexRace);
 
         _joueur.DefinitionStatistique();
+        
+        // Objets de départ
+        _joueur.AjouterInventaire(new Consommable("Petite Potion", "Rend 10 PV", 50, 10));
+        _joueur.AjouterInventaire(new Consommable("Pain rassis", "Rend 2 PV", 5, 2));
+
         GameView.EcrireLog($"Bienvenue {_joueur.Nom} l'{_joueur.Race} !");
     }
+
+    private void OuvrirInventaire()
+    {
+        int index = GameView.AfficherInventaireInteractif(_joueur.Inventaire);
+        if (index != -1)
+        {
+            Objet obj = _joueur.Inventaire.GetObjet(index);
+            if (obj != null)
+            {
+                obj.Utiliser(_joueur);
+                GameView.EcrireLog($"{_joueur.Nom} utilise {obj.Nom}.");
+            }
+        }
+    }
+
 
     private void GererMortJoueur()
     {

@@ -1,4 +1,4 @@
-﻿namespace Aelia.Modele;
+namespace Aelia.Modele;
 
 public class Personnage
 {
@@ -29,7 +29,7 @@ public class Personnage
         }
     }
     public List<string> Classe { get; set; } = new List<string>();
-    public List<string> Inventaire { get; set; } = new List<string>();
+    public Inventaire Inventaire { get; set; } = new Inventaire();
     public Statistique Statistiques { get; set; } = new Statistique();
     
     public bool EstMort => PointDeVie <= 0;
@@ -50,6 +50,7 @@ public class Personnage
     {
         PointDeVie -= point;
     }
+    
 
     public Personnage()
     {
@@ -69,7 +70,7 @@ public class Joueur : Personnage
         this.Statistiques.Vitesse = rnd.Next(1, 11) + 2;
     }
     
-    public void AjouterInventaire(string objet) => Inventaire.Add(objet);
+    public void AjouterInventaire(Objet objet) => Inventaire.AjouterObjet(objet);
 
     public void DefinirNom(string nom) => this.Nom = nom;
 

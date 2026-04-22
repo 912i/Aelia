@@ -1,5 +1,7 @@
+namespace Aelia.Modele;
+
 // Classe représentant un objet dans le jeu
-public class Objet
+public abstract class Objet
 {
     // Nom de l'objet
     public string Nom { get; set; }
@@ -18,4 +20,29 @@ public class Objet
         Description = description;
         Valeur = valeur;
     }
+
+    // Méthode abstraite pour utiliser l'objet
+    public abstract void Utiliser(Personnage cible);
 }
+
+// Sous-classe pour les objets consommables (ex: potions)
+public class Consommable : Objet
+{
+    public int EffetSoin { get; set; }
+
+    public Consommable(string nom, string description, int valeur, int effetSoin) 
+        : base(nom, description, valeur)
+    {
+        EffetSoin = effetSoin;
+    }
+
+    public override void Utiliser(Personnage cible)
+    {
+        if (cible is Joueur joueur)
+        {
+            joueur.Soin(EffetSoin);
+            joueur.Inventaire.SupprimerObjet(this);
+        }
+    }
+
+}

@@ -19,7 +19,7 @@ namespace Aelia.Modele
             this.estTermine = false;
         }
 
-        private void ExecuterAction(Personnage attaquant, Personnage cible)
+        public void ExecuterAction(Personnage attaquant, Personnage cible)
         {
             int degats = attaquant.Statistiques.Force - cible.Statistiques.Resistance;
             

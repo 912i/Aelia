@@ -48,6 +48,11 @@ public class GameController
         }
     }
 
+    private void LancerSequenceDialogue()
+    {
+        
+    }
+
     public void DemarrerPartie()
     {
         InitialiserJoueur();
@@ -65,7 +70,8 @@ public class GameController
                 case "2": _joueur.RecevoirDegats(10); break;
                 case "3": LancerSequenceCombat(); break;
                 case "4": OuvrirInventaire(); break;
-                case "5": _jeuEnCours = false; break;
+                case "5": LancerSequenceDialogue(); break;
+                case "6": _jeuEnCours = false; break;
             }
         }
     }
